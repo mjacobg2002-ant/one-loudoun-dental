@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--
+  ============================================================================
+  DENTAL PRACTICE WEBSITE TEMPLATE   (general · cosmetic · family dentistry)
+  ============================================================================
+  Warm, modern, patient-friendly design — teal + navy + champagne, Cormorant
+  Garamond serif + Manrope sans, rounded cards, soft shadows. One file.
+  Change accent color + logo, find-replace tokens, ship.
+
+  HOW TO USE  (5-minute setup)
+  ----------------------------------------------------------------------------
+  1. FIND-AND-REPLACE these tokens (editor "Replace All"):
+       One Loudoun Dental   e.g. Riverstone Dental
+       General, Cosmetic & Implant Dentistry         e.g. General & Cosmetic Dentistry
+       Dr. Dan Ashouripour, D.D.S.     e.g. Dr. Jane Smith, DDS
+       General Dentist — Implant & Cosmetic Dentistry     e.g. General & Cosmetic Dentist
+       A Medical College of Virginia graduate with over 20 years of dentistry experience and extensive training in implant dentistry    e.g. West Point graduate & Army veteran  (or any credibility line)
+       2011           e.g. 2009
+       (703) 729-7900           e.g. (703) 555-0100   (display)
+       +17037297900       e.g. +17035550100     (digits only, for tel:)
+       Ashburn            e.g. McLean
+       Loudoun County & Northern Virginia          e.g. Northern Virginia
+       VA           e.g. VA
+       44790 Maynard Square, Suite 180          e.g. 123 Main Street, Suite 200
+       20147             e.g. 22102
+       oneloudoundentalclinic.com          e.g. riverstonedental.com
+       https://app.nexhealth.com/appt/one-loudoun-dental-clinic        online booking link (Zocdoc/NexHealth) — or "#book"
+       https://www.google.com/maps/search/?api=1&query=One+Loudoun+Dental+44790+Maynard+Square+Ashburn+VA      Google reviews link — or "#"
+       44790%20Maynard%20Square%20Suite%20180%2C%20Ashburn%2C%20VA%2020147       url-encoded address, e.g. 123%20Main%20St%2C%20McLean%2C%20VA
+  2. CHANGE COLORS: edit the 2 lines marked "★ BRAND ACCENT" in :root.
+     (Presets for teal / navy / plum / forest / slate are listed there.)
+  3. LOGO: drop logo-white.png (dark header/footer) + logo-color.png into
+     /assets/img. No logo? The practice name shows as styled text instead.
+  4. PHOTOS: drop into /assets/img with the names below. Missing photos auto-hide
+     and show a soft brand-tinted panel, so the site always looks finished:
+        hero.jpg  welcome.jpg  doctor.jpg  office-1.jpg  office-2.jpg  office-3.jpg
+     (Optional: hero.mp4 for a background video — see the HERO comment.)
+  5. EDIT COPY: search "EDIT:" for services, stats, first-visit steps, bio, reviews.
+  ============================================================================
+-->
+
+<title>Ashburn Dentist | One Loudoun Dental, VA</title>
+<meta name="description" content="General, Cosmetic & Implant Dentistry in Ashburn, VA — gentle, personalized dental care with Dr. Dan Ashouripour, D.D.S. New patients welcome. Call (703) 729-7900." />
+<meta name="theme-color" content="#007f94" />
+<link rel="canonical" href="https://oneloudoundentalclinic.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ashburn Dentist | One Loudoun Dental" />
+<meta property="og:description" content="General, Cosmetic & Implant Dentistry in Ashburn, VA. Gentle, personalized care. New patients welcome." />
+<meta property="og:image" content="https://oneloudoundentalclinic.com/assets/img/hero.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "One Loudoun Dental",
+  "description": "General, Cosmetic & Implant Dentistry in Ashburn, VA.",
+  "url": "https://oneloudoundentalclinic.com/",
+  "telephone": "+17037297900",
+  "priceRange": "$$$",
+  "address": {"@type":"PostalAddress","streetAddress":"44790 Maynard Square, Suite 180","addressLocality":"Ashburn","addressRegion":"VA","postalCode":"20147","addressCountry":"US"},
+  "areaServed": "Loudoun County & Northern Virginia",
+  "employee": {"@type":"Dentist","name":"Dr. Dan Ashouripour, D.D.S."}
+}
+</script>
+
+<style>
+:root{
+  --navy:#1e3a5f; --navy-900:#12233a; --navy-700:#1a3252;
+  --sage:#8aa79a; --sage-100:#e7eee9; --champagne:#c7a86a;
+  --cream:#fbfaf5; --ivory:#f8f6f0; --charcoal:#2b2f2e; --line:#e7e2d6;
+
+  /* ============================================================
+     ★ BRAND ACCENT — change these 2 lines to rebrand the site.
+     --brand = deep shade (buttons, text on cream)
+     --brand-bright = vivid shade (gradients, graphic accents)
+     ============================================================ */
+  --brand:#007f94; --brand-bright:#00bcd5;
+  /* Brand accent sampled directly from One Loudoun Dental's real site CSS
+     (#00bcd5 cyan, used 12x across buttons/icons) and their logo (#00b0d0).
+     --brand is a deepened shade of that exact cyan for contrast/readability;
+     --brand-bright is their literal site color. Not a generic preset. */
+
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Manrope",system-ui,-apple-system,sans-serif;
+  --wrap:1240px; --gutter:clamp(1.25rem,5vw,4rem);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --shadow-soft:0 10px 40px -12px rgba(18,35,58,.18);
+  --shadow-lift:0 24px 60px -20px rgba(18,35,58,.28);
+  --brand-gradient:linear-gradient(135deg,var(--brand-bright) 0%,var(--brand) 55%,var(--navy-900) 115%);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);font-weight:400;color:var(--charcoal);background:var(--cream);line-height:1.65;font-size:clamp(1rem,.97rem+.15vw,1.06rem);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;line-height:1.08;letter-spacing:-.01em;color:var(--navy-900)}
+p{margin:0 0 1.1em}
+::selection{background:var(--brand-bright);color:#fff}
+:focus-visible{outline:2px solid var(--brand-bright);outline-offset:3px}
+.skip-link{position:absolute;left:-999px;top:0;z-index:200;background:var(--brand);color:#fff;padding:.7rem 1.2rem;border-radius:0 0 12px 0}
+.skip-link:focus{left:0}
+.container-x{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);background:var(--sage-100);padding:.45rem .9rem;border-radius:999px}
+.section-title{font-family:var(--serif);font-size:clamp(2rem,1.4rem+2.5vw,3.3rem);line-height:1.04;color:var(--navy-900);font-weight:600}
+.lead{font-size:1.12rem;color:rgba(43,47,46,.72);line-height:1.7}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--sans);font-weight:700;font-size:.92rem;padding:.95rem 1.6rem;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease),box-shadow .3s var(--ease);white-space:nowrap}
+.btn svg{width:17px;height:17px;flex:0 0 auto}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow-soft)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--brand-bright);box-shadow:0 20px 45px -18px rgba(33,182,168,.55)}
+.btn-navy{background:var(--navy-900);color:#fff}
+.btn-navy:hover{transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--navy-900);border-color:var(--line)}
+.btn-outline:hover{border-color:var(--brand);color:var(--brand)}
+.btn-glass{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.4);backdrop-filter:blur(6px)}
+.btn-glass:hover{transform:translateY(-2px);background:rgba(255,255,255,.22)}
+
+/* image panels — soft brand-tinted gradient shows when a photo is missing */
+.figpanel{position:relative;overflow:hidden;border-radius:24px;background:radial-gradient(120% 100% at 75% 10%,#fff,var(--sage-100) 55%,#dfe8e2 100%);box-shadow:var(--shadow-soft)}
+.figpanel::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 80% 85%,rgba(33,182,168,.14),transparent 70%),linear-gradient(120deg,rgba(255,255,255,.7),transparent 45%);pointer-events:none}
+.figpanel img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+.ratio-4-5{aspect-ratio:4/5}.ratio-4-3{aspect-ratio:4/3}.ratio-1-1{aspect-ratio:1/1}.ratio-3-2{aspect-ratio:3/2}
+
+/* ===== TOP UTILITY BAR ===== */
+.utility{background:var(--navy-900);color:rgba(255,255,255,.82);font-size:.8rem}
+.utility__in{max-width:var(--wrap);margin:0 auto;padding:.5rem var(--gutter);display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.utility a{color:#fff;font-weight:600}
+.utility__status{display:inline-flex;align-items:center;gap:.5rem}
+.dot{width:8px;height:8px;border-radius:50%;background:#3ad29f;box-shadow:0 0 0 3px rgba(58,210,159,.25)}
+.utility__right{display:flex;align-items:center;gap:1.4rem}
+@media (max-width:680px){.utility__hours{display:none}}
+
+/* ===== HEADER ===== */
+.header{position:sticky;top:0;z-index:50;transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+.header__in{max-width:var(--wrap);margin:0 auto;padding:.7rem var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:1.2rem}
+.brand{display:flex;align-items:center;gap:.6rem}
+.brand img{height:clamp(40px,5vw,52px);width:auto}
+.brand-text{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:#fff;line-height:1}
+.header.is-scrolled .brand-text{color:var(--navy-900)}
+.nav{display:flex;gap:clamp(1rem,2vw,2rem)}
+.nav a{font-size:.9rem;font-weight:600;color:rgba(255,255,255,.9);position:relative;padding:.3rem 0}
+.nav a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--brand-bright);transition:width .3s var(--ease)}
+.nav a:hover::after{width:100%}
+.header.is-scrolled .nav a{color:var(--navy)}
+.header__cta{display:flex;align-items:center;gap:1rem}
+.header.is-scrolled{background:rgba(251,250,245,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.navtoggle{display:none;flex-direction:column;gap:5px;background:none;border:0;padding:8px;cursor:pointer}
+.navtoggle span{width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s var(--ease)}
+.header.is-scrolled .navtoggle span{background:var(--navy-900)}
+
+.mobile-menu{position:fixed;inset:0;z-index:60;background:var(--navy-900);padding:5.5rem var(--gutter) 2.5rem;display:flex;flex-direction:column;justify-content:space-between;transform:translateY(-100%);transition:transform .5s var(--ease);visibility:hidden}
+.mobile-menu.is-open{transform:none;visibility:visible}
+.mobile-menu nav{display:flex;flex-direction:column;gap:.3rem}
+.mobile-menu nav a{font-family:var(--serif);font-size:2rem;color:#fff;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.mobile-menu__foot{display:grid;gap:1rem}
+.mm-close{position:absolute;top:1.3rem;right:1.3rem;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);border:0;color:#fff;font-size:1.4rem;cursor:pointer}
+body.menu-open{overflow:hidden}
+
+/* ===== HERO ===== */
+.hero{position:relative;overflow:hidden;background:var(--navy-900)}
+.hero__bg{position:absolute;inset:0;z-index:0}
+.hero__bg img,.hero__bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(18,35,58,.92) 0%,rgba(18,35,58,.6) 45%,rgba(18,35,58,.3) 100%),linear-gradient(0deg,rgba(18,35,58,.75),transparent 45%)}
+.hero__fallback{position:absolute;inset:0;background:radial-gradient(90% 90% at 80% 0%,rgba(33,182,168,.22),transparent 55%),var(--brand-gradient)}
+.hero__in{position:relative;z-index:2;max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);min-height:88vh;display:flex;align-items:center}
+.hero__copy{max-width:640px;color:#fff;padding:8rem 0 4rem}
+.hero__badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);padding:.45rem .9rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;backdrop-filter:blur(4px)}
+.hero__badge svg{width:14px;height:14px;color:var(--champagne)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.7rem);font-weight:700;color:#fff;margin:1.4rem 0 0;line-height:1.04;text-shadow:0 2px 30px rgba(9,20,34,.5)}
+.hero h1 .grad{display:block;background:linear-gradient(115deg,#8ff0e4,#e7cf96 90%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.1em}
+.hero__lede{max-width:34em;margin:1.4rem 0 0;font-size:1.14rem;color:rgba(255,255,255,.92);text-shadow:0 1px 12px rgba(9,20,34,.7)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
+.hero__rating{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.6rem;margin-top:2rem;font-size:.9rem;color:#fff;text-shadow:0 1px 10px rgba(9,20,34,.7)}
+.hero__stars{color:var(--champagne);letter-spacing:.1em}
+.hero__cred{display:inline-flex;align-items:center;gap:.5rem;font-weight:600}
+.hero__cred svg{width:16px;height:16px;color:var(--champagne)}
+.hero__vsep{width:1px;height:20px;background:rgba(255,255,255,.3)}
+
+/* ===== STATS BAND ===== */
+.stats{position:relative;overflow:hidden;background:var(--brand-gradient)}
+.stats::before{content:"";position:absolute;inset:0;opacity:.4;background:radial-gradient(80% 120% at 0% 0%,rgba(255,255,255,.14),transparent 55%)}
+.stats__grid{position:relative;max-width:var(--wrap);margin:0 auto;padding:3rem var(--gutter);display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.stat{text-align:center;color:#fff}
+.stat .v{font-family:var(--serif);font-size:clamp(2rem,4vw,2.9rem);font-weight:700;line-height:1}
+.stat .v span{color:var(--champagne)}
+.stat .l{margin-top:.6rem;font-size:.88rem;color:rgba(255,255,255,.82);font-weight:500}
+
+/* ===== SECTION SHELL ===== */
+.section{padding:clamp(4rem,9vh,7rem) 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+
+/* welcome */
+.welcome{background:var(--cream)}
+.welcome__copy .section-title{margin:1.1rem 0 1.3rem}
+.pledge{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.9rem}
+.pledge li{display:flex;gap:.8rem;align-items:flex-start;font-weight:600;color:var(--navy)}
+.pledge svg{width:22px;height:22px;color:var(--brand);flex:0 0 auto;margin-top:2px}
+
+/* services */
+.services{background:var(--ivory)}
+.services__head{max-width:640px}
+.svc-grid{margin-top:3rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.card-surface{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow-soft)}
+.svc{padding:2rem 1.8rem 2.1rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.svc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+.svc__ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--sage-100);color:var(--brand);margin-bottom:1.2rem}
+.svc__ic svg{width:26px;height:26px}
+.svc h3{font-size:1.5rem;margin-bottom:.5rem}
+.svc p{font-size:.96rem;color:rgba(43,47,46,.72);margin:0}
+.svc__cat{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:.7rem}
+
+/* first visit steps */
+.firstvisit{background:var(--cream)}
+.steps{margin-top:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.step{position:relative;padding:1.8rem;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.step:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+.step .n{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:color-mix(in srgb,var(--brand-bright) 40%,transparent);transition:color .3s}
+.step:hover .n{color:var(--brand-bright)}
+.step h3{font-size:1.2rem;margin:.6rem 0 .5rem}
+.step p{font-size:.92rem;color:rgba(43,47,46,.72);margin:0}
+.firstvisit__cta{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;justify-content:space-between;background:var(--navy-900);color:#fff;border-radius:28px;padding:1.8rem 2.2rem}
+.firstvisit__cta p{margin:0;font-size:1.15rem;font-weight:600}
+
+/* doctor */
+.doctor{background:var(--ivory)}
+.doctor__cred{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin:1rem 0 1.1rem}
+.doctor__copy p{color:rgba(43,47,46,.75)}
+
+/* experience (dark) */
+.experience{background:linear-gradient(165deg,var(--navy-900),var(--navy))}
+.experience .section-title,.experience h3{color:#fff}
+.experience .eyebrow{background:rgba(255,255,255,.1);color:var(--champagne)}
+.exp-grid{margin-top:3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.exp li{list-style:none;border-top:1px solid rgba(255,255,255,.16);padding-top:1.3rem}
+.exp .n{font-size:.72rem;font-weight:700;letter-spacing:.16em;color:var(--champagne)}
+.exp h3{font-size:1.3rem;color:#fff;margin:.9rem 0 .5rem}
+.exp p{font-size:.9rem;color:rgba(255,255,255,.66);margin:0}
+.experience__lede{max-width:52ch;color:rgba(255,255,255,.78)}
+
+/* gallery */
+.gallery{background:var(--cream)}
+.gal-grid{margin-top:3rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+
+/* testimonials */
+.testi{background:var(--ivory);text-align:center}
+.testi__rating{display:inline-flex;align-items:center;gap:.6rem;margin:.6rem 0 2.5rem;flex-wrap:wrap;justify-content:center}
+.testi__score{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--navy-900)}
+.testi__stars{color:var(--champagne);font-size:1.2rem;letter-spacing:.08em}
+.testi__count{font-size:.82rem;color:var(--sage);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:left}
+.t-card{padding:2rem 1.8rem;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-soft);display:flex;flex-direction:column}
+.t-card .s{color:var(--champagne);margin-bottom:.9rem}
+.t-card p{color:var(--charcoal);flex-grow:1;margin:0}
+.t-card .who{margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--line);font-weight:700;color:var(--navy)}
+.t-card .who span{display:block;font-weight:500;font-size:.85rem;color:var(--sage)}
+
+/* insurance band */
+.insurance{background:var(--brand-gradient);color:#fff}
+.insurance__in{display:flex;flex-wrap:wrap;align-items:center;gap:2rem;justify-content:space-between}
+.insurance h2{color:#fff;font-size:clamp(1.6rem,3vw,2.3rem)}
+.insurance p{color:rgba(255,255,255,.85);margin:.6rem 0 0;max-width:40ch}
+.ins-logos{display:flex;flex-wrap:wrap;gap:.7rem}
+.ins-chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:.5rem 1rem;border-radius:999px;font-size:.85rem;font-weight:600}
+
+/* appointment CTA */
+.appt{background:var(--cream)}
+.appt__card{position:relative;overflow:hidden;border-radius:32px;background:var(--navy-900);color:#fff;padding:clamp(2.5rem,6vw,4.5rem);text-align:center}
+.appt__card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 50% 0%,rgba(33,182,168,.28),transparent 60%);pointer-events:none}
+.appt__card h2{color:#fff;position:relative;font-size:clamp(2rem,4vw,3.2rem)}
+.appt__card p{position:relative;color:rgba(255,255,255,.8);max-width:46ch;margin:1.1rem auto 2rem}
+.appt__actions{position:relative;display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center}
+
+/* location */
+.location{background:var(--ivory)}
+.loc-meta{display:grid;gap:1.6rem;margin:2rem 0}
+.loc-meta dt{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:.35rem}
+.loc-meta dd{margin:0;font-size:1rem;color:var(--navy);line-height:1.7}
+.loc-meta a{color:var(--brand);font-weight:600}
+.gmap{display:block;width:100%;height:clamp(320px,42vh,460px);border:0;border-radius:24px;box-shadow:var(--shadow-soft);filter:grayscale(.15)}
+
+/* footer */
+.footer{background:var(--navy-900);color:rgba(255,255,255,.62)}
+.footer__in{max-width:var(--wrap);margin:0 auto;padding:clamp(3rem,7vh,4.5rem) var(--gutter) 2.5rem;display:grid;grid-template-columns:1.3fr 2fr;gap:clamp(2rem,6vw,4rem)}
+.footer__brand img{height:90px;margin-bottom:1rem}
+.footer__brand .brand-text{display:block;margin-bottom:1rem}
+.footer__brand p{max-width:32ch;font-size:.92rem}
+.footer__nav{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.footer__nav h3{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--champagne);margin-bottom:1rem}
+.footer__nav a{display:block;font-size:.92rem;padding:.3rem 0;color:rgba(255,255,255,.7)}
+.footer__nav a:hover{color:#fff}
+.footer__nav address{font-style:normal;font-size:.92rem;line-height:1.9}
+.footer__bar{border-top:1px solid rgba(255,255,255,.12);max-width:var(--wrap);margin:0 auto;padding:1.3rem var(--gutter);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.45)}
+
+/* mobile action bar */
+.mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:55;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 30px -12px rgba(18,35,58,.25);padding:.55rem;gap:.55rem;grid-template-columns:1fr 1.4fr}
+.mobile-bar .btn{padding:.85rem;font-size:.85rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* responsive */
+@media (max-width:1000px){
+  .nav,.header__cta .btn,.utility__hours{display:none}
+  .navtoggle{display:flex}
+  .svc-grid,.gal-grid,.testi-grid{grid-template-columns:1fr 1fr}
+  .steps,.exp-grid,.stats__grid{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .mobile-bar{display:grid}
+  main{padding-bottom:66px}
+}
+@media (max-width:760px){
+  .two-col{grid-template-columns:1fr;gap:2.2rem}
+  .two-col .figpanel{max-width:520px}
+  .insurance__in{flex-direction:column;align-items:flex-start}
+  .footer__in{grid-template-columns:1fr}
+  .firstvisit__cta{flex-direction:column;text-align:center}
+}
+@media (max-width:520px){
+  .svc-grid,.gal-grid,.testi-grid,.steps,.exp-grid,.stats__grid{grid-template-columns:1fr}
+  .footer__nav{grid-template-columns:1fr 1fr}
+  .btn{width:100%}
+  .hero__actions .btn,.appt__actions .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#services">Skip to content</a>
+
+<!-- ===== TOP UTILITY BAR ===== -->
+<div class="utility">
+  <div class="utility__in">
+    <span class="utility__status"><span class="dot"></span> Now accepting new patients</span>
+    <div class="utility__right">
+      <span class="utility__hours">Mon–Fri · 9am–6pm · Sat 9am–2pm</span>
+      <a href="tel:+17037297900">(703) 729-7900</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header__in">
+    <a class="brand" href="#top" aria-label="One Loudoun Dental home">
+      <img src="assets/img/logo-white.png" alt="One Loudoun Dental" onerror="this.style.display='none';document.getElementById('brandText').style.display='inline'" />
+      <span class="brand-text" id="brandText" style="display:none">One Loudoun Dental</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#patient-info">New Patients</a>
+      <a href="#doctor">About</a>
+      <a href="#location">Contact</a>
+    </nav>
+    <div class="header__cta">
+      <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book Appointment</a>
+      <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mm-close" id="mmClose" aria-label="Close menu">&times;</button>
+  <nav aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#patient-info">New Patients</a>
+    <a href="#doctor">About</a>
+    <a href="#location">Contact</a>
+  </nav>
+  <div class="mobile-menu__foot">
+    <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book Appointment</a>
+    <a class="btn btn-glass" href="tel:+17037297900">Call (703) 729-7900</a>
+  </div>
+</div>
+
+<main>
+<span id="top"></span>
+
+<!-- ===== HERO =====
+     Background: drop hero.jpg into assets/img. For a video background, add
+     hero.mp4 and uncomment the <video> tag below. If neither loads, a branded
+     gradient fallback shows automatically. -->
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__fallback"></div>
+    <img src="assets/img/hero.jpg" alt="" aria-hidden="true" onerror="this.style.display='none'" />
+    <!-- <video autoplay muted loop playsinline poster="assets/img/hero.jpg" aria-hidden="true"><source src="assets/img/hero.mp4" type="video/mp4"></video> -->
+  </div>
+  <div class="hero__in">
+    <div class="hero__copy">
+      <span class="hero__badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ashburn, VA · Since 2011</span>
+      <!-- EDIT: headline (the second line gets the gradient) -->
+      <h1>A Smile Is a Curve<span class="grad">That Sets Everything Straight.</span></h1>
+      <p class="hero__lede">Gentle, personalized dental care built around your comfort, your goals, and the long-term health of your smile — with Dr. Dan Ashouripour, D.D.S. in Ashburn.</p>
+      <div class="hero__actions">
+        <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>
+          Request an Appointment
+        </a>
+        <a class="btn btn-glass" href="tel:+17037297900">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.98.36 1.93.68 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.92.32 1.87.55 2.85.68A2 2 0 0 1 22 16.92Z"/></svg>
+          Call (703) 729-7900
+        </a>
+      </div>
+      <div class="hero__rating">
+        <!-- EDIT: credibility line (or remove) -->
+        <span class="hero__cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>A Medical College of Virginia graduate with over 20 years of dentistry experience and extensive training in implant dentistry</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS BAND ===== -->
+<section class="stats" aria-label="Practice at a glance">
+  <div class="stats__grid">
+    <!-- EDIT: your real numbers -->
+    <div class="stat"><div class="v">20<span>+</span></div><div class="l">Years of Dentistry Experience</div></div>
+    <div class="stat"><div class="v">2011<span></span></div><div class="l">Serving Ashburn Since</div></div>
+    <div class="stat"><div class="v">5<span></span></div><div class="l">Languages Spoken by Our Team</div></div>
+    <div class="stat"><div class="v">New<span> Patients</span></div><div class="l">Always Welcome</div></div>
+  </div>
+</section>
+
+<!-- ===== WELCOME ===== -->
+<section class="section welcome" id="welcome">
+  <div class="container-x two-col">
+    <div class="welcome__copy reveal">
+      <span class="eyebrow">Welcome</span>
+      <h2 class="section-title">Dentistry that feels calm, personal, and honest.</h2>
+      <!-- EDIT -->
+      <p class="lead">Dr. Dan Ashouripour and his team proudly provide quality dental care to the communities surrounding Ashburn and One Loudoun. We take time to listen, explain your options clearly, and care for you the way we'd care for our own family.</p>
+      <ul class="pledge">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Treatment begins with patiently listening to you first</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clear, thorough exams and honest diagnosis before any treatment</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>A multilingual team — English, Spanish, French, Farsi &amp; Turkish spoken</li>
+      </ul>
+    </div>
+    <figure class="figpanel ratio-4-3 reveal">
+      <img src="assets/img/welcome.jpg" alt="Inside One Loudoun Dental" onerror="this.style.display='none'" />
+    </figure>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section services" id="services">
+  <div class="container-x">
+    <div class="services__head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2 class="section-title" style="margin-top:1rem">Complete care for every smile.</h2>
+    </div>
+    <div class="svc-grid">
+      <!-- EDIT: rename services + copy. Icons are generic; swap freely. Add/remove cards. -->
+      <article class="svc card-surface reveal"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M5 8s2-3 7-3 7 3 7 3M5 8c0 6 3 12 7 12s7-6 7-12"/></svg></div><div class="svc__cat">Restorative</div><h3>Dental Implants</h3><p>Extensive training in implant dentistry, including bone grafts and All-On-4 denture solutions.</p></article>
+      <article class="svc card-surface reveal"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9-2.8.9-5.5-4-3.9L9.5 8 12 3Z"/></svg></div><div class="svc__cat">Cosmetic</div><h3>Cosmetic Dentistry</h3><p>Zoom! whitening, veneers, and smile makeovers for a natural, confident look.</p></article>
+      <article class="svc card-surface reveal"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8M9 3v4a5 5 0 0 0 6 0V3M7 21h10M9 21v-5a3 3 0 0 1 6 0v5"/></svg></div><div class="svc__cat">Orthodontics</div><h3>Invisalign</h3><p>Straighten your teeth discreetly with clear, custom-fit aligners.</p></article>
+      <article class="svc card-surface reveal"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 2 8 4 6 4S2 3 2 7c0 5 2 15 4 15s2-6 6-6 4 6 6 6 4-10 4-15c0-4-2-3-4-3s-3-2-6-2Z"/></svg></div><div class="svc__cat">General &amp; Restorative</div><h3>Crowns, Bridges &amp; Fillings</h3><p>Tooth-colored fillings, crowns, bridges, inlays and onlays built to last.</p></article>
+      <article class="svc card-surface reveal"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 3 13 5 13s1-4 2-4 0 4 2 4 5-8 5-13a7 7 0 0 0-7-7Z"/></svg></div><div class="svc__cat">Specialized Care</div><h3>Root Canal &amp; TMJ Treatment</h3><p>Surgical and non-surgical treatment for pain relief and long-term oral health.</p></article>
+      <article class="svc card-surface reveal"><div class="svc__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/></svg></div><div class="svc__cat">Preventive</div><h3>Exams, Cleanings &amp; Sealants</h3><p>Regular checkups that catch early warning signs before they become bigger problems.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FIRST VISIT ===== -->
+<section class="section firstvisit" id="patient-info">
+  <div class="container-x">
+    <div class="services__head reveal">
+      <span class="eyebrow">New Patients</span>
+      <h2 class="section-title" style="margin-top:1rem">Your first visit, made simple.</h2>
+    </div>
+    <div class="steps">
+      <!-- EDIT -->
+      <div class="step reveal"><div class="n">1</div><h3>Reach Out</h3><p>Book online or call — we'll find a time that works and verify your insurance.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>Warm Welcome</h3><p>Arrive to a calm, friendly office and a team that already knows your name.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>Gentle Exam</h3><p>A thorough, no-pressure exam and a clear picture of your dental health.</p></div>
+      <div class="step reveal"><div class="n">4</div><h3>Your Plan</h3><p>Honest recommendations and a plan built around your goals and budget.</p></div>
+    </div>
+    <div class="firstvisit__cta reveal">
+      <p>Ready to become a patient?</p>
+      <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book Your First Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOCTOR ===== -->
+<section class="section doctor" id="doctor">
+  <div class="container-x two-col">
+    <figure class="figpanel ratio-4-5 reveal">
+      <img src="assets/img/doctor.jpg" alt="Dr. Dan Ashouripour, D.D.S." onerror="this.style.display='none'" />
+    </figure>
+    <div class="doctor__copy reveal">
+      <span class="eyebrow">Meet your dentist</span>
+      <h2 class="section-title" style="margin-top:1rem">Dr. Dan Ashouripour, D.D.S.</h2>
+      <p class="doctor__cred">General Dentist — Implant & Cosmetic Dentistry</p>
+      <!-- EDIT: bio -->
+      <p>Dr. Dan Ashouripour is a graduate of the Medical College of Virginia and has practiced dentistry for over 20 years, with extensive post-graduate training in implant dentistry as well as cosmetic, restorative, and surgical treatments.</p>
+      <p>His approach starts with patiently listening to each patient, followed by a thorough exam and an honest conversation about diagnosis and treatment options — no pressure, just a clear plan. His practice team speaks English, Spanish, French, Farsi, and Turkish to serve Ashburn's diverse community.</p>
+      <a class="btn btn-outline" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book with Dr. Dan Ashouripour, D.D.S.</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE (dark) ===== -->
+<section class="section experience">
+  <div class="container-x">
+    <span class="eyebrow reveal">The experience</span>
+    <h2 class="section-title reveal" style="margin-top:1rem;max-width:16ch">Your visit should feel different.</h2>
+    <p class="lead experience__lede reveal" style="margin-top:1.2rem">A calm, spa-like atmosphere, modern technology, and care that's genuinely built around you.</p>
+    <ul class="exp-grid">
+      <li class="reveal"><div class="n">01</div><h3>Calm by design</h3><p>An unhurried, comfortable environment made to put you at ease.</p></li>
+      <li class="reveal"><div class="n">02</div><h3>Personalized care</h3><p>Treatment planned around your goals, health, and comfort.</p></li>
+      <li class="reveal"><div class="n">03</div><h3>Modern technology</h3><p>Contemporary tools and techniques, applied with real intention.</p></li>
+      <li class="reveal"><div class="n">04</div><h3>Treated like family</h3><p>Clear, honest guidance every step of the way.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="section gallery">
+  <div class="container-x">
+    <div class="services__head reveal">
+      <span class="eyebrow">The office</span>
+      <h2 class="section-title" style="margin-top:1rem">A space designed for comfort.</h2>
+    </div>
+    <div class="gal-grid">
+      <figure class="figpanel ratio-1-1 reveal"><img src="assets/img/office-1.jpg" alt="Office interior" onerror="this.style.display='none'" /></figure>
+      <figure class="figpanel ratio-1-1 reveal"><img src="assets/img/office-2.jpg" alt="Treatment room" onerror="this.style.display='none'" /></figure>
+      <figure class="figpanel ratio-1-1 reveal"><img src="assets/img/office-3.jpg" alt="Reception" onerror="this.style.display='none'" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section testi">
+  <div class="container-x">
+    <span class="eyebrow reveal">Reviews</span>
+    <h2 class="section-title reveal" style="margin-top:1rem">Loved by our Ashburn patients.</h2>
+    <!-- EDIT: real patient quotes, taken verbatim from the practice's own website -->
+    <div class="testi-grid">
+      <blockquote class="t-card reveal"><div class="s">★★★★★</div><p>"I typically dread going to a dentist, but Dr. Ashouripour and his staff make me very comfortable and at ease. Dr. and his staff are very professional and really care."</p><footer class="who">Betty C.<span>Patient</span></footer></blockquote>
+      <blockquote class="t-card reveal"><div class="s">★★★★★</div><p>"Dr. Ashouripour has wonderful bedside manner. He put me at ease and genuinely seemed to care that I understood everything. I'm very grateful to have found him!"</p><footer class="who">Kelley W.<span>Patient</span></footer></blockquote>
+      <blockquote class="t-card reveal"><div class="s">★★★★★</div><p>"The doctor was knowledgeable and very kind."</p><footer class="who">Verified Patient<span>Patient</span></footer></blockquote>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem" class="reveal"><a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=One+Loudoun+Dental+44790+Maynard+Square+Ashburn+VA" target="_blank" rel="noopener">Find us on Google Maps</a></div>
+  </div>
+</section>
+
+<!-- ===== INSURANCE BAND ===== -->
+<section class="section insurance">
+  <div class="container-x insurance__in">
+    <div class="reveal">
+      <h2>Insurance &amp; financing, made easy.</h2>
+      <p>Call our Ashburn office and we'll help verify your insurance and discuss financing options before your visit.</p>
+    </div>
+    <!-- EDIT: real accepted plans — not published on the practice's site; call to confirm [VERIFY] -->
+    <div class="ins-logos reveal">
+      <span class="ins-chip">Call to verify your plan</span><span class="ins-chip">(703) 729-7900</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== APPOINTMENT CTA ===== -->
+<section class="section appt" id="book">
+  <div class="container-x">
+    <div class="appt__card reveal">
+      <h2>Your best smile starts here.</h2>
+      <p>Schedule a visit with One Loudoun Dental and experience dentistry designed around you. New and existing patients always welcome.</p>
+      <div class="appt__actions">
+        <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book Your Appointment</a>
+        <a class="btn btn-glass" href="tel:+17037297900">Call (703) 729-7900</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATION ===== -->
+<section class="section location" id="location">
+  <div class="container-x two-col">
+    <div class="reveal">
+      <span class="eyebrow">Visit us</span>
+      <h2 class="section-title" style="margin-top:1rem">Conveniently located in Ashburn.</h2>
+      <p class="lead" style="margin-top:1rem">Serving Ashburn and Loudoun County & Northern Virginia, with easy parking and a calm, welcoming office.</p>
+      <dl class="loc-meta">
+        <div><dt>Address</dt><dd>44790 Maynard Square, Suite 180<br />Ashburn, VA 20147</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+17037297900">(703) 729-7900</a></dd></div>
+        <!-- EDIT: real hours, from the practice's own contact page [VERIFY before publishing — third-party listings show conflicting hours] -->
+        <div><dt>Hours</dt><dd>Mon–Fri · 9:00 AM – 6:00 PM<br />Sat · 9:00 AM – 2:00 PM<br />Sun · Closed</dd></div>
+      </dl>
+      <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book Your Appointment</a>
+    </div>
+    <iframe class="gmap reveal" title="One Loudoun Dental on Google Maps" src="https://www.google.com/maps?q=44790%20Maynard%20Square%20Suite%20180%2C%20Ashburn%2C%20VA%2020147&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer__in">
+    <div class="footer__brand">
+      <img src="assets/img/logo-white.png" alt="One Loudoun Dental" onerror="this.style.display='none';document.getElementById('footBrand').style.display='block'" />
+      <span class="brand-text" id="footBrand" style="display:none;color:#fff">One Loudoun Dental</span>
+      <p>General, Cosmetic & Implant Dentistry in Ashburn and Loudoun County & Northern Virginia.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <div><h3>Dentistry</h3><a href="#services">General &amp; Family</a><a href="#services">Cosmetic</a><a href="#services">Invisalign</a><a href="#services">Implants</a></div>
+      <div><h3>Practice</h3><a href="#doctor">About Dr. Dan Ashouripour, D.D.S.</a><a href="#patient-info">New Patients</a><a href="#location">Location</a><a href="#book">Book a Visit</a></div>
+      <div><h3>Visit</h3><address>44790 Maynard Square, Suite 180<br />Ashburn, VA 20147<br /><a href="tel:+17037297900" style="color:var(--champagne)">(703) 729-7900</a></address></div>
+    </nav>
+  </div>
+  <div class="footer__bar">
+    <p>&copy; <span id="year"></span> One Loudoun Dental. All rights reserved.</p>
+    <p>General, Cosmetic & Implant Dentistry · Ashburn, VA</p>
+  </div>
+</footer>
+
+<div class="mobile-bar" aria-label="Quick actions">
+  <a class="btn btn-outline" href="tel:+17037297900">Call</a>
+  <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book Appointment</a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var header=document.getElementById('header'), toggle=document.getElementById('navToggle'), menu=document.getElementById('mobileMenu');
+  function onScroll(){ header.classList.toggle('is-scrolled', window.scrollY>30); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  function close(){ menu.classList.remove('is-open'); menu.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.classList.remove('menu-open'); }
+  toggle.addEventListener('click', function(){ var o=menu.classList.toggle('is-open'); menu.setAttribute('aria-hidden',o?'false':'true'); toggle.setAttribute('aria-expanded',o?'true':'false'); document.body.classList.toggle('menu-open',o); });
+  document.getElementById('mmClose').addEventListener('click', close);
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&menu.classList.contains('is-open')) close(); });
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } }); },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else { document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-in'); }); }
+  document.getElementById('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
