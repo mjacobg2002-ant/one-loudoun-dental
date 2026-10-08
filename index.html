@@ -248,8 +248,8 @@ body.menu-open{overflow:hidden}
 .exp li{list-style:none;border-top:1px solid rgba(255,255,255,.16);padding-top:1.3rem}
 .exp .n{font-size:.72rem;font-weight:700;letter-spacing:.16em;color:var(--champagne)}
 .exp h3{font-size:1.3rem;color:#fff;margin:.9rem 0 .5rem}
-.exp p{font-size:.9rem;color:rgba(255,255,255,.66);margin:0}
-.experience__lede{max-width:52ch;color:rgba(255,255,255,.78)}
+.exp p{font-size:.9rem;color:rgba(255,255,255,.82);margin:0}
+.experience__lede{max-width:52ch;color:rgba(255,255,255,.9)}
 
 /* gallery */
 .gallery{background:var(--cream)}
@@ -673,12 +673,14 @@ body.menu-open{overflow:hidden}
   if(!reduce&&'IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } }); },{threshold:0,rootMargin:'0px 0px -6% 0px'});
     reveals.forEach(function(el){ io.observe(el); });
-    // Safety net: anything still hidden near/above the fold gets revealed,
-    // and a hard fallback guarantees nothing is ever stuck invisible.
+    // Safety net: reveal anything in/near the first viewport immediately,
+    // reveal EVERYTHING the moment the user scrolls at all, and keep a hard
+    // timeout so text can never be left invisible.
     window.addEventListener('load',function(){ setTimeout(function(){
       reveals.forEach(function(el){ var r=el.getBoundingClientRect(); if(r.top < window.innerHeight*1.15){ el.classList.add('is-in'); } });
-    },250); });
-    setTimeout(revealAll, 2600);
+    },200); });
+    window.addEventListener('scroll', revealAll, {once:true, passive:true});
+    setTimeout(revealAll, 1500);
   } else { revealAll(); }
   document.getElementById('year').textContent=new Date().getFullYear();
 })();
