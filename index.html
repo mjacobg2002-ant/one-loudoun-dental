@@ -287,6 +287,14 @@ body.menu-open{overflow:hidden}
 .loc-meta dd{margin:0;font-size:1rem;color:var(--navy);line-height:1.7}
 .loc-meta a{color:var(--brand);font-weight:600}
 .gmap{display:block;width:100%;height:clamp(320px,42vh,460px);border:0;border-radius:24px;box-shadow:var(--shadow-soft);filter:grayscale(.15)}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,3vw,2.5rem);margin-top:2.6rem}
+.loc-card{background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow-soft);display:flex;flex-direction:column}
+.loc-card .gmap{border-radius:0;height:clamp(220px,26vh,280px);box-shadow:none;filter:grayscale(.15)}
+.loc-card__body{padding:clamp(1.6rem,3vw,2.2rem);display:flex;flex-direction:column;flex:1}
+.loc-card__name{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--navy-900);display:flex;align-items:center;gap:.6rem}
+.loc-card__name .pin{color:var(--brand)}
+.loc-card .loc-meta{margin:1.4rem 0 1.8rem}
+.loc-card .btn{margin-top:auto;justify-content:center}
 
 /* footer */
 .footer{background:var(--navy-900);color:rgba(255,255,255,.62)}
@@ -294,7 +302,7 @@ body.menu-open{overflow:hidden}
 .footer__brand img{height:90px;margin-bottom:1rem}
 .footer__brand .brand-text{display:block;margin-bottom:1rem}
 .footer__brand p{max-width:32ch;font-size:.92rem}
-.footer__nav{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.footer__nav{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
 .footer__nav h3{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--champagne);margin-bottom:1rem}
 .footer__nav a{display:block;font-size:.92rem;padding:.3rem 0;color:rgba(255,255,255,.7)}
 .footer__nav a:hover{color:#fff}
@@ -322,6 +330,7 @@ body.menu-open{overflow:hidden}
 @media (max-width:760px){
   .two-col{grid-template-columns:1fr;gap:2.2rem}
   .two-col .figpanel{max-width:520px}
+  .loc-grid{grid-template-columns:1fr}
   .insurance__in{flex-direction:column;align-items:flex-start}
   .footer__in{grid-template-columns:1fr}
   .firstvisit__cta{flex-direction:column;text-align:center}
@@ -542,7 +551,7 @@ body.menu-open{overflow:hidden}
 <section class="section testi">
   <div class="container-x">
     <span class="eyebrow reveal">Reviews</span>
-    <h2 class="section-title reveal" style="margin-top:1rem">Loved by our Ashburn patients.</h2>
+    <h2 class="section-title reveal" style="margin-top:1rem">Loved by our Northern Virginia patients.</h2>
     <!-- EDIT: real patient quotes, taken verbatim from the practice's own website -->
     <div class="testi-grid">
       <blockquote class="t-card reveal"><div class="s">★★★★★</div><p>"I typically dread going to a dentist, but Dr. Ashouripour and his staff make me very comfortable and at ease. Dr. and his staff are very professional and really care."</p><footer class="who">Betty C.<span>Patient</span></footer></blockquote>
@@ -558,7 +567,7 @@ body.menu-open{overflow:hidden}
   <div class="container-x insurance__in">
     <div class="reveal">
       <h2>Insurance &amp; financing, made easy.</h2>
-      <p>Call our Ashburn office and we'll help verify your insurance and discuss financing options before your visit.</p>
+      <p>Call either our Ashburn or Alexandria office and we'll help verify your insurance and discuss financing options before your visit.</p>
     </div>
     <!-- EDIT: real accepted plans — not published on the practice's site; call to confirm [VERIFY] -->
     <div class="ins-logos reveal">
@@ -583,20 +592,42 @@ body.menu-open{overflow:hidden}
 
 <!-- ===== LOCATION ===== -->
 <section class="section location" id="location">
-  <div class="container-x two-col">
-    <div class="reveal">
+  <div class="container-x">
+    <div class="reveal" style="max-width:640px">
       <span class="eyebrow">Visit us</span>
-      <h2 class="section-title" style="margin-top:1rem">Conveniently located in Ashburn.</h2>
-      <p class="lead" style="margin-top:1rem">Serving Ashburn and Loudoun County & Northern Virginia, with easy parking and a calm, welcoming office.</p>
-      <dl class="loc-meta">
-        <div><dt>Address</dt><dd>44790 Maynard Square, Suite 180<br />Ashburn, VA 20147</dd></div>
-        <div><dt>Phone</dt><dd><a href="tel:+17037297900">(703) 729-7900</a></dd></div>
-        <!-- EDIT: real hours, from the practice's own contact page [VERIFY before publishing — third-party listings show conflicting hours] -->
-        <div><dt>Hours</dt><dd>Mon–Fri · 9:00 AM – 6:00 PM<br />Sat · 9:00 AM – 2:00 PM<br />Sun · Closed</dd></div>
-      </dl>
-      <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book Your Appointment</a>
+      <h2 class="section-title" style="margin-top:1rem">Two convenient Northern Virginia locations.</h2>
+      <p class="lead" style="margin-top:1rem">Same trusted care from Dr. Dan Ashouripour and our team — now serving you in both Ashburn and Alexandria, with easy parking and calm, welcoming offices.</p>
     </div>
-    <iframe class="gmap reveal" title="One Loudoun Dental on Google Maps" src="https://www.google.com/maps?q=44790%20Maynard%20Square%20Suite%20180%2C%20Ashburn%2C%20VA%2020147&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <div class="loc-grid">
+      <!-- ===== ASHBURN ===== -->
+      <article class="loc-card reveal">
+        <iframe class="gmap" title="One Loudoun Dental — Ashburn on Google Maps" src="https://www.google.com/maps?q=44790%20Maynard%20Square%20Suite%20180%2C%20Ashburn%2C%20VA%2020147&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="loc-card__body">
+          <h3 class="loc-card__name"><span class="pin">◉</span> Ashburn</h3>
+          <dl class="loc-meta">
+            <div><dt>Address</dt><dd>44790 Maynard Square, Suite 180<br />Ashburn, VA 20147</dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+17037297900">(703) 729-7900</a></dd></div>
+            <!-- EDIT: real hours [VERIFY — third-party listings show conflicting hours] -->
+            <div><dt>Hours</dt><dd>Mon–Fri · 9:00 AM – 6:00 PM<br />Sat · 9:00 AM – 2:00 PM · Sun · Closed</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book at Ashburn</a>
+        </div>
+      </article>
+      <!-- ===== ALEXANDRIA ===== -->
+      <article class="loc-card reveal">
+        <iframe class="gmap" title="One Loudoun Dental — Alexandria on Google Maps" src="https://www.google.com/maps?q=5249%20Duke%20Street%20Suite%20409%2C%20Alexandria%2C%20VA%2022304&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="loc-card__body">
+          <h3 class="loc-card__name"><span class="pin">◉</span> Alexandria</h3>
+          <dl class="loc-meta">
+            <div><dt>Address</dt><dd>5249 Duke Street, Suite 409<br />Alexandria, VA 22304</dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+17033706800">(703) 370-6800</a></dd></div>
+            <!-- EDIT: real hours for Alexandria not published — confirm with practice [VERIFY] -->
+            <div><dt>Hours</dt><dd>Call for current hours</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="https://app.nexhealth.com/appt/one-loudoun-dental-clinic" target="_blank" rel="noopener">Book at Alexandria</a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 </main>
@@ -607,17 +638,18 @@ body.menu-open{overflow:hidden}
     <div class="footer__brand">
       <img src="assets/img/logo-white.png" alt="One Loudoun Dental" onerror="this.style.display='none';document.getElementById('footBrand').style.display='block'" />
       <span class="brand-text" id="footBrand" style="display:none;color:#fff">One Loudoun Dental</span>
-      <p>General, Cosmetic & Implant Dentistry in Ashburn and Loudoun County & Northern Virginia.</p>
+      <p>General, Cosmetic & Implant Dentistry with two offices in Ashburn & Alexandria, serving Northern Virginia.</p>
     </div>
     <nav class="footer__nav" aria-label="Footer">
       <div><h3>Dentistry</h3><a href="#services">General &amp; Family</a><a href="#services">Cosmetic</a><a href="#services">Invisalign</a><a href="#services">Implants</a></div>
       <div><h3>Practice</h3><a href="#doctor">About Dr. Dan Ashouripour, D.D.S.</a><a href="#patient-info">New Patients</a><a href="#location">Location</a><a href="#book">Book a Visit</a></div>
-      <div><h3>Visit</h3><address>44790 Maynard Square, Suite 180<br />Ashburn, VA 20147<br /><a href="tel:+17037297900" style="color:var(--champagne)">(703) 729-7900</a></address></div>
+      <div><h3>Ashburn</h3><address>44790 Maynard Square, Suite 180<br />Ashburn, VA 20147<br /><a href="tel:+17037297900" style="color:var(--champagne)">(703) 729-7900</a></address></div>
+      <div><h3>Alexandria</h3><address>5249 Duke Street, Suite 409<br />Alexandria, VA 22304<br /><a href="tel:+17033706800" style="color:var(--champagne)">(703) 370-6800</a></address></div>
     </nav>
   </div>
   <div class="footer__bar">
     <p>&copy; <span id="year"></span> One Loudoun Dental. All rights reserved.</p>
-    <p>General, Cosmetic & Implant Dentistry · Ashburn, VA</p>
+    <p>General, Cosmetic & Implant Dentistry · Ashburn & Alexandria, VA</p>
   </div>
 </footer>
 
